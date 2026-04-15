@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
@@ -7,10 +6,7 @@
 <title>Belaku Buildtech & Constructions – Bengaluru</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- EmailJS for contact form -->
-
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <script>emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");</script>
 
 <style>
@@ -48,7 +44,12 @@ body{font-family:'Jost',sans-serif;background:var(--bg-main);color:var(--text-ma
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:padding 0.3s,background-color 0.4s;}
 nav.scrolled{padding:12px 60px;}
 .nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
-.nav-logo img{height:36px;width:auto;object-fit:contain;}
+
+/* Logo Auto-Alignment Fixes */
+.nav-logo img{max-height:48px;max-width:180px;width:auto;object-fit:contain;object-position:left center;display:block;}
+.drawer-hero img{max-height:60px;max-width:200px;width:auto;object-fit:contain;object-position:left center;margin-bottom:16px;display:block;}
+#footerLogoImg{max-height:64px;max-width:220px;width:auto;object-fit:contain;object-position:left center;margin-bottom:16px;display:block;}
+
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
 .nav-logo .tagline{font-size:9px;font-weight:500;letter-spacing:0.25em;color:var(--brand-orange);text-transform:uppercase;margin-top:5px;}
 .nav-actions{display:flex;align-items:center;gap:20px;}
@@ -58,13 +59,12 @@ nav.scrolled{padding:12px 60px;}
 /* ── SIDE DRAWER ── */
 .menu-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);z-index:999;opacity:0;visibility:hidden;transition:opacity 0.4s,visibility 0.4s;}
 .menu-overlay.active{opacity:1;visibility:visible;}
-.side-drawer{position:fixed;top:0;right:-420px;width:100%;max-width:400px;height:100vh;background:var(--bg-alt);z-index:1000;box-shadow:-20px 0 60px rgba(0,0,0,0.5);padding:0;display:flex;flex-direction:column;transition:right 0.45s cubic-bezier(0.77,0,0.175,1);overflow:hidden;}
+.side-drawer{position:fixed;top:0;right:-420px;width:100%;max-width:400px;height:100vh;background:var(--bg-alt);z-index:1000;box-shadow:-20px 0 60px rgba(0,0,0,0.5);padding:0;display:flex;flex-direction:column;transition:right 0.45s cubic-bezier(0.77,0,0.175,1);overflow-y:auto;overflow-x:hidden;}
 .side-drawer.active{right:0;}
 
 .drawer-hero{padding:40px 40px 32px;background:var(--section-adaptive-bg);border-bottom:1px solid var(--border);position:relative;}
 .drawer-hero-logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;background:var(--brand-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:4px;}
 .drawer-hero-sub{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--brand-orange);margin-bottom:24px;}
-.drawer-hero img{height:36px;margin-bottom:16px;display:block;}
 .drawer-close{position:absolute;top:20px;right:20px;background:rgba(242,109,33,0.1);border:1px solid rgba(242,109,33,0.2);cursor:pointer;color:var(--brand-orange);display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;transition:all 0.3s;}
 .drawer-close:hover{background:var(--brand-orange);color:#fff;}
 
@@ -87,7 +87,7 @@ nav.scrolled{padding:12px 60px;}
 .drawer-login-btn.logged-in:hover{border-color:#6fc87a;}
 
 /* ── LOGIN MODAL ── */
-.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:2000;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s;display:flex;align-items:center;justify-content:center;}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);z-index:2000;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s;display:flex;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.active{opacity:1;visibility:visible;}
 .modal-box{background:var(--card-bg);border-radius:12px;padding:48px;width:100%;max-width:420px;box-shadow:0 32px 80px rgba(0,0,0,0.6);border:1px solid var(--border);position:relative;transform:translateY(20px);transition:transform 0.3s;}
 .modal-overlay.active .modal-box{transform:translateY(0);}
@@ -98,7 +98,7 @@ nav.scrolled{padding:12px 60px;}
 .modal-box p{font-size:13px;color:var(--text-muted);margin-bottom:28px;line-height:1.6;}
 .modal-form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
 .modal-form-group label{font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);}
-.modal-form-group input{background:var(--input-bg);border:1.5px solid var(--input-border);border-radius:6px;padding:12px 14px;font-family:'Jost',sans-serif;font-size:14px;color:var(--text-main);outline:none;transition:border 0.3s;}
+.modal-form-group input{background:var(--input-bg);border:1.5px solid var(--input-border);border-radius:6px;padding:12px 14px;font-family:'Jost',sans-serif;font-size:14px;color:var(--text-main);outline:none;transition:border 0.3s;width:100%;}
 .modal-form-group input:focus{border-color:var(--brand-orange);}
 .modal-err{font-size:12px;color:#e56163;text-align:center;margin-bottom:12px;display:none;}
 .modal-btn{width:100%;background:var(--brand-gradient);color:#fff;border:none;padding:14px;border-radius:6px;font-family:'Jost',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:opacity 0.3s;}
@@ -164,23 +164,21 @@ nav.scrolled{padding:12px 60px;}
 .stat-label{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);}
 .hero-right{position:relative;z-index:2;display:flex;justify-content:center;align-items:center;}
 .hero-image-stack{position:relative;width:100%;max-width:520px;}
-.hero-img-main{width:82%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;display:block;margin-left:auto;box-shadow:24px 24px 60px var(--shadow);}
-.hero-img-accent{position:absolute;left:0;bottom:60px;width:52%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;box-shadow:12px 12px 40px var(--shadow);border:6px solid var(--bg-main);transition:border-color 0.4s;}
+
+/* Enforce perfect scaling on Hero Images */
+.hero-img-main{width:82%;aspect-ratio:3/4;object-fit:cover;object-position:center;border-radius:8px;display:block;margin-left:auto;box-shadow:24px 24px 60px var(--shadow);}
+.hero-img-accent{position:absolute;left:0;bottom:60px;width:52%;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:8px;box-shadow:12px 12px 40px var(--shadow);border:6px solid var(--bg-main);transition:border-color 0.4s;}
 .hero-badge{position:absolute;right:10px;top:40px;background:var(--brand-gradient);color:#fff;width:110px;height:110px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(217,56,58,0.4);text-align:center;}
 .hero-badge .badge-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;line-height:1;}
 .hero-badge .badge-text{font-size:9px;letter-spacing:0.15em;text-transform:uppercase;font-weight:500;margin-top:2px;}
-/* Editable hero image overlay for admin */
-.img-edit-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);border-radius:8px;display:none;align-items:center;justify-content:center;cursor:pointer;z-index:10;color:#fff;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;gap:8px;}
-.admin-active .img-edit-overlay{display:flex;}
-.hero-image-stack:hover .img-edit-overlay{background:rgba(242,109,33,0.6);}
 
 /* QUOTE STRIP */
 .quote-strip{background:var(--section-adaptive-bg);padding:60px;display:grid;grid-template-columns:1fr 2px 2fr 2px auto;align-items:center;gap:48px;transition:background-color 0.4s;}
 .quote-strip-divider{background:var(--border);height:60px;}
 .qs-label{font-size:10px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:var(--brand-orange);}
 .qs-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--section-adaptive-text);line-height:1.3;font-style:italic;}
-.quote-form{display:flex;gap:12px;align-items:center;}
-.quote-form input,.quote-form select{background:var(--input-bg);border:1px solid var(--input-border);color:var(--text-main);padding:12px 18px;font-family:'Jost',sans-serif;font-size:13px;border-radius:4px;outline:none;transition:border 0.3s;}
+.quote-form{display:flex;gap:12px;align-items:center;width:100%;}
+.quote-form input,.quote-form select{background:var(--input-bg);border:1px solid var(--input-border);color:var(--text-main);padding:12px 18px;font-family:'Jost',sans-serif;font-size:13px;border-radius:4px;outline:none;transition:border 0.3s;flex:1;}
 .quote-form input::placeholder{color:var(--text-muted);}
 .quote-form select option{background:var(--bg-main);}
 .quote-form input:focus,.quote-form select:focus{border-color:var(--brand-orange);}
@@ -198,7 +196,9 @@ section{padding:100px 60px;}
 /* ── ABOUT ── */
 #about{background:var(--bg-alt);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .about-image-wrap{position:relative;}
-.about-main-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;display:block;box-shadow:20px 20px 60px var(--shadow);}
+
+/* Enforce perfect scaling on About Image */
+.about-main-img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:8px;display:block;box-shadow:20px 20px 60px var(--shadow);}
 .about-accent-box{position:absolute;bottom:-24px;right:-24px;background:var(--brand-gradient);padding:28px 32px;border-radius:8px;color:#fff;}
 .about-accent-box .big-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;line-height:1;}
 .about-accent-box .big-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;opacity:0.85;}
@@ -215,13 +215,16 @@ section{padding:100px 60px;}
 #projects{background:var(--bg-main);}
 .projects-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;}
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-.project-card{border-radius:8px;overflow:hidden;box-shadow:0 4px 24px var(--shadow);transition:transform 0.4s,box-shadow 0.4s;background:var(--card-bg);}
+.project-card{border-radius:8px;overflow:hidden;box-shadow:0 4px 24px var(--shadow);transition:transform 0.4s,box-shadow 0.4s;background:var(--card-bg);display:flex;flex-direction:column;}
 .project-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px var(--shadow);}
 .project-card:first-child{grid-column:span 2;}
-.project-img{width:100%;display:block;object-fit:cover;}
-.project-card:first-child .project-img{height:320px;}
-.project-card .project-img{height:240px;}
-.project-info{padding:24px;}
+
+/* Enforce perfect scaling on Project Images */
+.project-img{width:100%;display:block;object-fit:cover;object-position:center;height:auto;}
+.project-card:first-child .project-img{aspect-ratio:16/9;}
+.project-card .project-img{aspect-ratio:4/3;}
+
+.project-info{padding:24px;flex-grow:1;}
 .project-tag{font-size:10px;font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--brand-orange);margin-bottom:8px;display:block;}
 .project-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:8px;color:var(--text-main);}
 .project-meta{font-size:12px;color:var(--text-muted);display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
@@ -261,7 +264,7 @@ section{padding:100px 60px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
 .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
 .form-group label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);}
-.form-group input,.form-group select,.form-group textarea{border:1.5px solid var(--input-border);border-radius:4px;padding:12px 14px;font-family:'Jost',sans-serif;font-size:14px;outline:none;transition:border 0.3s;background:var(--input-bg);color:var(--text-main);}
+.form-group input,.form-group select,.form-group textarea{border:1.5px solid var(--input-border);border-radius:4px;padding:12px 14px;font-family:'Jost',sans-serif;font-size:14px;outline:none;transition:border 0.3s;background:var(--input-bg);color:var(--text-main);width:100%;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--brand-orange);}
 .form-group textarea{resize:vertical;min-height:90px;}
 .prof-label{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--brand-red);font-weight:600;margin-bottom:32px;}
@@ -283,13 +286,13 @@ section{padding:100px 60px;}
 .testimonials-header .section-title{margin-bottom:12px;}
 .testimonials-header p{font-size:15px;color:var(--text-muted);font-weight:300;}
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px;}
-.testi-card{background:var(--card-bg);border-radius:8px;padding:36px;box-shadow:0 4px 20px var(--shadow);transition:transform 0.4s,box-shadow 0.4s;position:relative;overflow:hidden;}
+.testi-card{background:var(--card-bg);border-radius:8px;padding:36px;box-shadow:0 4px 20px var(--shadow);transition:transform 0.4s,box-shadow 0.4s;position:relative;overflow:hidden;display:flex;flex-direction:column;}
 .testi-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:120px;font-weight:700;color:var(--border);position:absolute;top:-10px;right:16px;line-height:1;pointer-events:none;}
 .testi-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px var(--shadow);}
 .testi-stars{display:flex;gap:4px;margin-bottom:20px;}
 .star-btn{background:none;border:none;cursor:pointer;padding:2px;font-size:20px;line-height:1;transition:transform 0.2s;}
 .star-btn:hover{transform:scale(1.2);}
-.testi-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;font-style:italic;line-height:1.7;color:var(--text-main);margin-bottom:28px;}
+.testi-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;font-style:italic;line-height:1.7;color:var(--text-main);margin-bottom:28px;flex-grow:1;}
 .testi-author{display:flex;align-items:center;gap:14px;}
 .testi-avatar{width:48px;height:48px;border-radius:50%;background:var(--brand-gradient);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#fff;}
 .testi-name{font-weight:600;font-size:15px;color:var(--text-main);}
@@ -369,7 +372,7 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
 .fade-up:nth-child(3){transition-delay:0.2s;}
 .fade-up:nth-child(4){transition-delay:0.3s;}
 
-/* ── RESPONSIVE ── */
+/* ── RESPONSIVE / MOBILE FIXES ── */
 @media(max-width:1024px){
   nav{padding:18px 32px;}
   #home,#about,#consultation,.contact-grid{grid-template-columns:1fr;gap:48px;}
@@ -377,37 +380,43 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   section{padding:72px 32px;}
   .quote-strip{grid-template-columns:1fr;padding:40px 32px;}
   .quote-strip-divider{display:none;}
-  .quote-form{flex-wrap:wrap;}
   .roadmap-steps{grid-template-columns:repeat(3,1fr);gap:32px;}
   .roadmap-line,.roadmap-line-fill{display:none;}
   .testimonials-grid{grid-template-columns:1fr;}
   .projects-grid{grid-template-columns:1fr;}
   .project-card:first-child{grid-column:span 1;}
+  .project-card:first-child .project-img{aspect-ratio:16/9;}
   .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
   .hero-right{display:none;}
   .rm-tooltip{width:160px;font-size:10px;}
 }
+
 @media(max-width:640px){
   nav{padding:16px 20px;}
   section{padding:60px 20px;}
   #home{padding:100px 20px 48px;}
   .hero-stats{gap:24px;flex-wrap:wrap;}
+  
+  /* Stacking the quote form smoothly on mobile */
+  .quote-form{flex-direction:column;align-items:stretch;}
+  .quote-form input, .quote-form select, .quote-form button{width:100%;}
+  
+  /* Guarantee cards look proportional on small screens */
+  .project-card:first-child .project-img, .project-card .project-img{aspect-ratio:16/9;}
+  
   .footer-grid{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;gap:16px;text-align:center;}
   .form-row{grid-template-columns:1fr;}
   .about-values{grid-template-columns:1fr;}
   .side-drawer{max-width:100%;}
+  .toast-container{right:20px;left:20px;top:80px;align-items:center;}
+  .toast{width:100%;max-width:100%;}
 }
 </style>
-
 </head>
 <body>
 
-<!-- Toast Container -->
-
 <div class="toast-container" id="toastContainer"></div>
-
-<!-- NAV -->
 
 <nav id="navbar">
   <a href="#home" class="nav-logo" id="navLogoLink">
@@ -426,11 +435,7 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </nav>
 
-<!-- MENU OVERLAY -->
-
 <div class="menu-overlay" id="menu-overlay"></div>
-
-<!-- SIDE DRAWER -->
 
 <div class="side-drawer" id="side-drawer">
   <div class="drawer-hero">
@@ -462,8 +467,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </div>
 
-<!-- LOGIN MODAL -->
-
 <div class="modal-overlay" id="loginModal">
   <div class="modal-box">
     <button class="modal-close-btn" id="loginModalClose">
@@ -487,8 +490,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </div>
 
-<!-- ADMIN PANEL -->
-
 <div class="admin-panel" id="adminPanel">
   <div class="admin-header">
     <div>
@@ -501,127 +502,114 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
   <div class="admin-body">
 
-```
-<!-- Brand & Logo -->
-<div class="admin-section">
-  <div class="admin-section-title">Brand & Logo</div>
-  <div class="admin-field">
-    <label>Logo Image URL (leave blank to use gradient text)</label>
-    <input type="url" id="adminLogoUrl" placeholder="https://your-domain.com/logo.png">
-  </div>
-  <button class="admin-btn" onclick="applyLogo()">Apply Logo</button>
-</div>
-
-<!-- Company Stats -->
-<div class="admin-section">
-  <div class="admin-section-title">Company Statistics</div>
-  <div class="admin-row">
-    <div class="admin-field">
-      <label>Years of Experience</label>
-      <input type="text" id="adminYears" placeholder="e.g. 2">
+    <div class="admin-section">
+      <div class="admin-section-title">Brand & Logo</div>
+      <div class="admin-field">
+        <label>Logo Image URL (leave blank to use gradient text)</label>
+        <input type="url" id="adminLogoUrl" placeholder="https://your-domain.com/logo.png">
+      </div>
+      <button class="admin-btn" onclick="applyLogo()">Apply Logo</button>
     </div>
-    <div class="admin-field">
-      <label>Homes Delivered</label>
-      <input type="text" id="adminHomes" placeholder="e.g. 45">
+
+    <div class="admin-section">
+      <div class="admin-section-title">Company Statistics</div>
+      <div class="admin-row">
+        <div class="admin-field">
+          <label>Years of Experience</label>
+          <input type="text" id="adminYears" placeholder="e.g. 2">
+        </div>
+        <div class="admin-field">
+          <label>Homes Delivered</label>
+          <input type="text" id="adminHomes" placeholder="e.g. 45">
+        </div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field">
+          <label>Happy Families (%)</label>
+          <input type="text" id="adminFamilies" placeholder="e.g. 98">
+        </div>
+        <div class="admin-field">
+          <label>Hero Badge Number</label>
+          <input type="text" id="adminBadge" placeholder="e.g. 2">
+        </div>
+      </div>
+      <div class="admin-field">
+        <label>About Accent Box Count (Homes Built)</label>
+        <input type="text" id="adminAboutCount" placeholder="e.g. 45">
+      </div>
+      <button class="admin-btn" onclick="applyStats()">Update Statistics</button>
+      <div class="admin-success" id="statsSuccess">Statistics updated successfully!</div>
     </div>
-  </div>
-  <div class="admin-row">
-    <div class="admin-field">
-      <label>Happy Families (%)</label>
-      <input type="text" id="adminFamilies" placeholder="e.g. 98">
+
+    <div class="admin-section">
+      <div class="admin-section-title">Hero Section Images</div>
+      <div class="admin-field">
+        <label>Main Hero Image URL</label>
+        <input type="url" id="adminHeroMain" placeholder="https://... (portrait image)">
+      </div>
+      <div class="admin-field">
+        <label>Accent Hero Image URL</label>
+        <input type="url" id="adminHeroAccent" placeholder="https://... (landscape image)">
+      </div>
+      <button class="admin-btn" onclick="applyHeroImages()">Update Hero Images</button>
     </div>
-    <div class="admin-field">
-      <label>Hero Badge Number</label>
-      <input type="text" id="adminBadge" placeholder="e.g. 2">
+
+    <div class="admin-section">
+      <div class="admin-section-title">About Us Image</div>
+      <div class="admin-field">
+        <label>About Section Image URL</label>
+        <input type="url" id="adminAboutImg" placeholder="https://...">
+      </div>
+      <button class="admin-btn" onclick="applyAboutImage()">Update About Image</button>
     </div>
-  </div>
-  <div class="admin-field">
-    <label>About Accent Box Count (Homes Built)</label>
-    <input type="text" id="adminAboutCount" placeholder="e.g. 45">
-  </div>
-  <button class="admin-btn" onclick="applyStats()">Update Statistics</button>
-  <div class="admin-success" id="statsSuccess">Statistics updated successfully!</div>
-</div>
 
-<!-- Hero Images -->
-<div class="admin-section">
-  <div class="admin-section-title">Hero Section Images</div>
-  <div class="admin-field">
-    <label>Main Hero Image URL</label>
-    <input type="url" id="adminHeroMain" placeholder="https://... (portrait image)">
-  </div>
-  <div class="admin-field">
-    <label>Accent Hero Image URL</label>
-    <input type="url" id="adminHeroAccent" placeholder="https://... (landscape image)">
-  </div>
-  <button class="admin-btn" onclick="applyHeroImages()">Update Hero Images</button>
-</div>
-
-<!-- About Image -->
-<div class="admin-section">
-  <div class="admin-section-title">About Us Image</div>
-  <div class="admin-field">
-    <label>About Section Image URL</label>
-    <input type="url" id="adminAboutImg" placeholder="https://...">
-  </div>
-  <button class="admin-btn" onclick="applyAboutImage()">Update About Image</button>
-</div>
-
-<!-- Contact Info -->
-<div class="admin-section">
-  <div class="admin-section-title">Contact Information</div>
-  <div class="admin-field">
-    <label>Office Address</label>
-    <textarea id="adminAddress">141/1, Ground Floor, Srinivasa Road, Thyagarajanagar, 2nd Main, Banasankari, Bengaluru – 560004</textarea>
-  </div>
-  <div class="admin-row">
-    <div class="admin-field">
-      <label>Phone Number</label>
-      <input type="text" id="adminPhone" value="+91 96203 56567">
+    <div class="admin-section">
+      <div class="admin-section-title">Contact Information</div>
+      <div class="admin-field">
+        <label>Office Address</label>
+        <textarea id="adminAddress">141/1, Ground Floor, Srinivasa Road, Thyagarajanagar, 2nd Main, Banasankari, Bengaluru – 560004</textarea>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field">
+          <label>Phone Number</label>
+          <input type="text" id="adminPhone" value="+91 96203 56567">
+        </div>
+        <div class="admin-field">
+          <label>Email ID (receives messages)</label>
+          <input type="email" id="adminEmail" value="srinath@belakubuildtech.com">
+        </div>
+      </div>
+      <button class="admin-btn" onclick="applyContact()">Update Contact Info</button>
+      <div class="admin-success" id="contactSuccess">Contact info updated!</div>
     </div>
-    <div class="admin-field">
-      <label>Email ID (receives messages)</label>
-      <input type="email" id="adminEmail" value="srinath@belakubuildtech.com">
+
+    <div class="admin-section">
+      <div class="admin-section-title">Projects</div>
+      <div id="adminProjectsList"></div>
+      <div style="border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:16px;">
+        <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand-orange);margin-bottom:16px;">Add New Project</div>
+        <div class="admin-field"><label>Project Name</label><input type="text" id="newProjName" placeholder="e.g. Heritage Villa, HSR"></div>
+        <div class="admin-row">
+          <div class="admin-field"><label>Project Type</label><input type="text" id="newProjType" placeholder="Premium Villa"></div>
+          <div class="admin-field"><label>Location</label><input type="text" id="newProjLoc" placeholder="HSR Layout"></div>
+        </div>
+        <div class="admin-field"><label>Size & BHK</label><input type="text" id="newProjSize" placeholder="2800 sq ft · 3 BHK"></div>
+        <div class="admin-field"><label>Image URL</label><input type="url" id="newProjImg" placeholder="https://..."></div>
+        <button class="admin-btn" onclick="addProject()">Add Project</button>
+      </div>
     </div>
-  </div>
-  <button class="admin-btn" onclick="applyContact()">Update Contact Info</button>
-  <div class="admin-success" id="contactSuccess">Contact info updated!</div>
-</div>
 
-<!-- Projects -->
-<div class="admin-section">
-  <div class="admin-section-title">Projects</div>
-  <div id="adminProjectsList"></div>
-  <div style="border:1px solid var(--border);border-radius:8px;padding:20px;margin-top:16px;">
-    <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--brand-orange);margin-bottom:16px;">Add New Project</div>
-    <div class="admin-field"><label>Project Name</label><input type="text" id="newProjName" placeholder="e.g. Heritage Villa, HSR"></div>
-    <div class="admin-row">
-      <div class="admin-field"><label>Project Type</label><input type="text" id="newProjType" placeholder="Premium Villa"></div>
-      <div class="admin-field"><label>Location</label><input type="text" id="newProjLoc" placeholder="HSR Layout"></div>
+    <div class="admin-section">
+      <div class="admin-section-title">Reviews Management</div>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Reviews submitted by customers are shown here. You can remove any.</p>
+      <div id="adminReviewsList"></div>
     </div>
-    <div class="admin-field"><label>Size & BHK</label><input type="text" id="newProjSize" placeholder="2800 sq ft · 3 BHK"></div>
-    <div class="admin-field"><label>Image URL</label><input type="url" id="newProjImg" placeholder="https://..."></div>
-    <button class="admin-btn" onclick="addProject()">Add Project</button>
+
+    <button class="admin-logout-btn" onclick="doLogout()">
+      Sign Out of Admin Panel
+    </button>
   </div>
 </div>
-
-<!-- Testimonials -->
-<div class="admin-section">
-  <div class="admin-section-title">Reviews Management</div>
-  <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">Reviews submitted by customers are shown here. You can remove any.</p>
-  <div id="adminReviewsList"></div>
-</div>
-
-<!-- Logout -->
-<button class="admin-logout-btn" onclick="doLogout()">
-  Sign Out of Admin Panel
-</button>
-```
-
-  </div>
-</div>
-
-<!-- REVIEW MODAL -->
 
 <div class="review-modal" id="reviewModal">
   <div class="review-modal-box">
@@ -666,8 +654,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </div>
 
-<!-- ══════════════ HERO ══════════════ -->
-
 <section id="home">
   <div class="hero-grid-lines"></div>
   <div class="hero-bg-ornament"></div>
@@ -694,8 +680,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </section>
 
-<!-- GET A QUOTE STRIP -->
-
 <div class="quote-strip">
   <div><p class="qs-label">Build Your Dream Home</p></div>
   <div class="quote-strip-divider"></div>
@@ -708,8 +692,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
     <button onclick="submitQuote()">Get Quote →</button>
   </div>
 </div>
-
-<!-- ABOUT -->
 
 <section id="about">
   <div class="about-image-wrap fade-up">
@@ -733,12 +715,10 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </section>
 
-<!-- PROJECTS -->
-
 <section id="projects">
   <div class="projects-header">
     <div><div class="section-eyebrow"><span></span><p>Our Work</p></div><h2 class="section-title">Featured <em>Projects</em></h2></div>
-    <a href="#contact" class="btn-outline">View All Projects</a>
+    <a href="#projects" class="btn-outline" onclick="showToast('You are currently viewing all featured projects.', 'info')">View All Projects</a>
   </div>
   <div class="projects-grid" id="projectsGrid">
     <div class="project-card fade-up">
@@ -755,8 +735,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
     </div>
   </div>
 </section>
-
-<!-- ROADMAP -->
 
 <section id="roadmap">
   <div class="section-eyebrow"><span></span><p>Our Process</p></div>
@@ -806,8 +784,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </section>
 
-<!-- CONSULTATION -->
-
 <section id="consultation">
   <div class="consultation-info fade-up">
     <div class="section-eyebrow"><span></span><p>Consultation</p></div>
@@ -847,8 +823,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-
 <section id="testimonials">
   <div class="testimonials-header fade-up">
     <div class="section-eyebrow"><span></span><p>Client Stories</p></div>
@@ -856,8 +830,7 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
     <p>Real experiences from homeowners across Bengaluru</p>
   </div>
   <div class="testimonials-grid" id="reviewsGrid">
-    <!-- Reviews dynamically loaded -->
-  </div>
+    </div>
   <div style="text-align:center;margin-top:20px;">
     <button class="add-review-btn" onclick="openReviewModal()">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -865,8 +838,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
     </button>
   </div>
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact">
   <div class="contact-grid">
@@ -892,7 +863,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
           <div><h5>Working Hours</h5><p>Monday – Saturday: 9:00 AM – 6:00 PM</p></div>
         </div>
       </div>
-      <!-- Map Button - redirects to Google Maps -->
       <a id="mapBtn" href="https://maps.google.com/?q=141/1+Srinivasa+Road+Thyagarajanagar+Banasankari+Bengaluru+560004" target="_blank" rel="noopener" class="contact-map-btn">
         <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span>Banasankari, Bengaluru</span>
@@ -918,13 +888,11 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
   </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="footer-logo-text" id="footerLogoText">Belaku</div>
-      <img src="" id="footerLogoImg" alt="Belaku Logo" style="display:none;height:40px;margin-bottom:8px;">
+      <img src="" id="footerLogoImg" alt="Belaku Logo" style="display:none;">
       <span class="footer-logo-sub">Buildtech & Constructions</span>
       <p>Delivering exceptional residential spaces across Bengaluru. Built on trust, craftsmanship, and a commitment to lasting quality.</p>
     </div>
@@ -954,13 +922,6 @@ footer{background:var(--footer-bg);padding:72px 60px 36px;transition:background-
     </div>
   </div>
 </footer>
-
-<!-- ═══════════ HTTPS NOTE ═══════════ -->
-
-<!-- NOTE: The "Not Secure" warning is a SERVER configuration issue, not a code issue.
-     To fix it: In your hosting provider (GitHub Pages/Netlify/Vercel/cPanel),
-     enable "Force HTTPS" or install a free SSL certificate via Let's Encrypt.
-     This HTML file cannot fix SSL — it must be done on the server/hosting side. -->
 
 <script>
 // ═══════ DATA STORE ═══════
@@ -1129,6 +1090,7 @@ function applyAllToPage(){
   document.getElementById('statFamilies').innerHTML=siteData.families+'<span>%</span>';
   document.getElementById('heroBadgeNum').textContent=siteData.badge;
   document.getElementById('aboutCount').innerHTML=siteData.aboutCount+'<span style="font-size:32px">+</span>';
+  
   // Contact
   document.getElementById('contactAddress').textContent=siteData.address;
   document.getElementById('contactPhone').textContent=siteData.phone;
@@ -1138,21 +1100,27 @@ function applyAllToPage(){
   document.getElementById('footerAddress').textContent=siteData.address;
   document.getElementById('footerPhone').textContent=siteData.phone;
   document.getElementById('footerEmail').textContent=siteData.email;
-  // Logo
+  
+  // Logo Logic
   const logoUrl=siteData.logoUrl;
   const showImg=!!logoUrl;
   ['navLogoImg','drawerLogoImg','footerLogoImg'].forEach(id=>{
     const el=document.getElementById(id);
-    if(el){el.src=logoUrl;el.style.display=showImg?'block':'none';}
+    if(el){
+        el.src=logoUrl;
+        el.style.display=showImg?'block':'none';
+    }
   });
   ['navLogoText','drawerLogoText','footerLogoText'].forEach(id=>{
     const el=document.getElementById(id);
     if(el)el.style.display=showImg?'none':'block';
   });
+  
   // Images
   document.getElementById('heroImgMain').src=siteData.heroMain;
   document.getElementById('heroImgAccent').src=siteData.heroAccent;
   document.getElementById('aboutImg').src=siteData.aboutImg;
+  
   // Projects
   renderProjects();
 }
@@ -1162,7 +1130,7 @@ function renderProjects(){
   const grid=document.getElementById('projectsGrid');
   grid.innerHTML=siteData.projects.map((p,i)=>`
     <div class="project-card fade-up" style="${i===0?'grid-column:span 2':''}" >
-      <img src="${p.img}" alt="${p.name}" class="project-img" onerror="this.style.background='#333';this.style.minHeight='200px';">
+      <img src="${p.img}" alt="${p.name}" class="project-img" onerror="this.style.background='#333';">
       <div class="project-info">
         <span class="project-tag">${p.type}</span>
         <div class="project-name">${p.name}</div>
@@ -1324,18 +1292,6 @@ function submitContact(){
   const msg=document.getElementById('cmsg').value.trim();
   const status=document.getElementById('contactFormStatus');
   if(!name||!msg){showToast('Please fill in your name and message.','error');return;}
-
-  // Send via EmailJS (requires setup at emailjs.com)
-  // emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
-  //   from_name: name, from_email: email,
-  //   to_email: siteData.email, message: msg
-  // }).then(()=>{
-  //   status.className='form-status success';
-  //   status.textContent='Message sent successfully! We\'ll reply within the day.';
-  // }).catch(()=>{
-  //   status.className='form-status error';
-  //   status.textContent='Sending failed. Please email us directly.';
-  // });
 
   // Fallback: open mail client
   const subject=encodeURIComponent(document.getElementById('csubject').value||'Enquiry from Website');
